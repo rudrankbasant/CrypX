@@ -20,6 +20,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.crypx.presentation.Screen
+import com.example.crypx.presentation.coin_detail.CoinCardScreen
 import com.example.crypx.presentation.coin_details.CoinDetailScreen
 import com.example.crypx.presentation.coin_list.CoinListScreen
 import com.example.crypx.presentation.ui.theme.CrypXTheme
@@ -48,26 +49,13 @@ class MainActivity : ComponentActivity() {
                         composable(route = Screen.CoinDetailScreen.route + "/{coinId}") {
                             CoinDetailScreen()
                         }
+                        composable(route = Screen.CoinCardsScreen.route) {
+                            CoinCardScreen()
+                        }
                     }
 
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    CrypXTheme {
-        Greeting("Android")
     }
 }

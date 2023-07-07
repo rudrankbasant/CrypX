@@ -1,5 +1,6 @@
 package com.example.crypx.domain.use_case.get_coins
 
+import android.util.Log
 import com.example.crypx.data.remote.dto.toCoin
 import com.example.crypx.domain.model.Coin
 import com.example.crypx.domain.repository.CrypXRepository
@@ -18,6 +19,7 @@ class GetCoinsUseCase @Inject constructor(
         try{
             emit(Resource.Loading())
             val coins = repository.getCoins().map { it.toCoin() }
+            Log.d("GetCoinsUseCase", "invoke: ${coins.size}}")
             emit(Resource.Success(coins))
         }catch(e: HttpException){
             emit(
